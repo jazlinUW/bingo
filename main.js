@@ -590,7 +590,7 @@ function generateGame() {
     var bingoOptions = $("#bingo_options").val().split(/\r?\n/);
 
     // Check valid characters only
-    if (!$("#bingo_options").val().match(/^[a-zA-Z0-9\s,,'.!?*]*$/)) {
+    if (!$("#bingo_options").val().match(/^[a-zA-Z0-9\s,,'.!?"*]*$/)) {
 
         errors.push("options_character");
     }
@@ -606,7 +606,7 @@ function generateGame() {
         errors.push("title_required");
     }
     // Check title has valid characters and that it is not only spaces
-    else if(!bingoTitle.match(/^[a-zA-Z0-9\s,,'.!?*]*$/) || !bingoTitle.match(/^[a-zA-Z0-9\s,,'.!?*]*$/g)) {
+    else if(!bingoTitle.match(/^[a-zA-Z0-9\s,,'".!?*]*$/) || !bingoTitle.match(/^[a-zA-Z0-9\s,,"'.!?*]*$/g)) {
         errors.push("title_character");
     }
     if(errors.length > 0) {
