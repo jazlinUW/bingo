@@ -5,6 +5,7 @@
     margin: 0;
     font-family: "M PLUS Rounded 1c", Arial, sans-serif;
     vertical-align: top;
+    text-align: center /*centers text in the middle of the cell*/
 }
 
 /* MENU */

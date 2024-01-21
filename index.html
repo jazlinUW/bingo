@@ -42,7 +42,7 @@
     </nav>
 
     <main>
-        <div id="description" hidden>Create and play your own games of bingo with friends and family.</div>
+        <div id="description" hidden>Create a bingo card for cocktail night!</div>
         <div id="delete_local_storage" hidden>
             <p class="error-msg">
                 If you are seeing this, something went wrong and you most likely have corrupt data in one of your games.
@@ -106,17 +106,17 @@
         <form id="create_game">
             <label>Game Title</label>
             <p id="title_required" class="error-msg">* Requires at least one alpha-numeric character</p>
-            <p id="title_character" class="error-msg">* Invalid character (can only use alpha-numeric, commas, and spaces)</p>
-            <input id="bingo_title" placeholder="Please enter spaces and alpha-numeric characters only">
+            <p id="title_character" class="error-msg">* Invalid character (can only use alpha-numeric and ., ', !, ?, *)</p>
+            <input id="bingo_title" placeholder="Characters are limited to alpha-numeric, ., ', !, *, ?">
             <label>Possible Cells</label>
-            <p id="options_short" class="error-msg">* Must have at least 24 comma separated entries</p>
-            <p id="options_character" class="error-msg">* Invalid character (can only use alpha-numeric, commas, and spaces)</p>
+            <p id="options_short" class="error-msg">* Must have at least 24 entries</p>
+            <p id="options_character" class="error-msg">* Invalid character (can only use alpha-numeric and ., ', !, ?, *)</p>
             <p id="options_entry" class="error-msg">* Invalid entry (each entry needs at least one alpha-numeric character)</p>
             <p id="options_url" class="warning-msg">
                 WARNING: the generated url is more than 2048 characters and may not be readable in all browsers. 
                 To avoid this issue, reduce the number of options or reduce the text within options.
             </p>
-            <textarea id="bingo_options" placeholder="Enter at least 24 options. Please enter spaces and alpha-numeric characters only with commas separating each cell option"></textarea>
+            <textarea id="bingo_options" placeholder="Enter at least 24 options. Characters are limited to alpha-numeric, ., ', !, *, ? with each cell separated by a new line (/n)"></textarea>
         
             <button id="remove_characters" class="danger">Remove Errors</button>
             <button id="generate_game">Generate Game</button>

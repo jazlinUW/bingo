@@ -132,20 +132,20 @@ window.onload = function() {
         }
     });
 
-    $("#remove_characters").on("click", function() {
-        event.preventDefault();
-        clearErrors();
+    // $("#remove_characters").on("click", function() {
+    //     event.preventDefault();
+    //     clearErrors();
 
-        var options = $("#bingo_options").val();
-        options = options.replace(/[^a-zA-Z0-9\s,]/g, "");
-        options = options.replace(/\,(\s*\,+)+/g, ",");
-        $("#bingo_options").val(options);
+    //     var options = $("#bingo_options").val();
+    //     options = options.replace(/[^a-zA-Z0-9\s,]/g, "");
+    //     options = options.replace(/\,(\s*\,+)+/g, ",");
+    //     $("#bingo_options").val(options);
 
-        var title = $("#bingo_title").val();
-        title = title.replace(/[^a-zA-Z0-9\s]/g, "");
-        title = title.replace(/\,(\s*\,+)+/g, ",");
-        $("#bingo_title").val(title);
-    });
+    //     var title = $("#bingo_title").val();
+    //     title = title.replace(/[^a-zA-Z0-9\s]/g, "");
+    //     title = title.replace(/\,(\s*\,+)+/g, ",");
+    //     $("#bingo_title").val(title);
+    // });
 
     $("td").on("click", function() {
         var cell = $(this);
@@ -587,10 +587,11 @@ function getGameVars(vars=null) {
 function generateGame() {
     var errors = [];
     var bingoTitle = $("#bingo_title").val().trim();
-    var bingoOptions = $("#bingo_options").val().split(",");
+    var bingoOptions = $("#bingo_options").val().split(/\r?\n/);
 
     // Check valid characters only
-    if(!$("#bingo_options").val().match(/^[a-zA-Z0-9\s,]*$/)) {
+    if (!$("#bingo_options").val().match(/^[a-zA-Z0-9\s,,'.!?*]*$/)) {
+
         errors.push("options_character");
     }
     // Check for an invalid entry that is blank or only spaces
@@ -605,7 +606,7 @@ function generateGame() {
         errors.push("title_required");
     }
     // Check title has valid characters and that it is not only spaces
-    else if(!bingoTitle.match(/^[a-zA-Z0-9\s]*$/) || !bingoTitle.match(/[a-zA-Z0-9]/g)) {
+    else if(!bingoTitle.match(/^[a-zA-Z0-9\s,,'.!?*]*$/) || !bingoTitle.match(/^[a-zA-Z0-9\s,,'.!?*]*$/g)) {
         errors.push("title_character");
     }
     if(errors.length > 0) {
